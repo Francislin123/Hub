@@ -4,8 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
@@ -14,7 +13,11 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Table(name = "pessoa")
-public class Person {
+public class PersonFisicaEntity {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String cpf;
 
@@ -23,12 +26,12 @@ public class Person {
     private LocalDate dateOfBirth;
 
     @Tolerate
-    public Person() {
+    public PersonFisicaEntity() {
         // Default method constructor for hibernate
     }
 
     @Builder
-    public Person(String cpf, String nameComplete, LocalDate dateOfBirth) {
+    public PersonFisicaEntity(String cpf, String nameComplete, LocalDate dateOfBirth) {
         this.cpf = cpf;
         this.nameComplete = nameComplete;
         this.dateOfBirth = dateOfBirth;

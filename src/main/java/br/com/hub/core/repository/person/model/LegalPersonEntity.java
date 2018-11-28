@@ -4,8 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Francislin Dos Reis on 28/11/2018
@@ -14,6 +13,10 @@ import javax.persistence.Table;
 @Data
 @Table(name = "pessoa_juridica")
 public class LegalPersonEntity {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String cnpj;
 
