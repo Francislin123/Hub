@@ -1,4 +1,4 @@
-package hub.com.br.hub;
+package br.br.hub;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
