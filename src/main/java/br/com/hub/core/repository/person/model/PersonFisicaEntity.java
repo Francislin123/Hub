@@ -4,7 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 /**
@@ -31,7 +34,8 @@ public class PersonFisicaEntity {
     }
 
     @Builder
-    public PersonFisicaEntity(String cpf, String nameComplete, LocalDate dateOfBirth) {
+    public PersonFisicaEntity(Long id, String cpf, String nameComplete, LocalDate dateOfBirth) {
+        this.id = id;
         this.cpf = cpf;
         this.nameComplete = nameComplete;
         this.dateOfBirth = dateOfBirth;

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.experimental.Tolerate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -23,13 +24,24 @@ public class ContaFilialEntity {
 
     private String nameAccount;
 
+    private BigDecimal AccountCredit;
+
     private LocalDateTime startDate;
 
     @ManyToOne
-    private PersonFisicaEntity personFisicaEntity;
+    private PersonFisicaEntity personFisica;
 
     @ManyToOne
     private LegalPersonEntity legalPerson;
+
+    @ManyToOne
+    private ContaMatrizEntity contaMatriz;
+
+    @ManyToOne
+    private ContaFilialEntity contaFilial;
+
+    @ManyToOne
+    private Situacao situacao;
 
     @Tolerate
     public ContaFilialEntity() {
@@ -37,10 +49,17 @@ public class ContaFilialEntity {
     }
 
     @Builder
-    public ContaFilialEntity(String nameAccount, LocalDateTime startDate, PersonFisicaEntity personFisicaEntity, LegalPersonEntity legalPerson) {
+    public ContaFilialEntity(Long id, String nameAccount, BigDecimal accountCredit, LocalDateTime startDate,
+                             PersonFisicaEntity personFisica, LegalPersonEntity legalPerson, ContaMatrizEntity contaMatriz,
+                             ContaFilialEntity contaFilial, Situacao situacao) {
+        this.id = id;
         this.nameAccount = nameAccount;
+        AccountCredit = accountCredit;
         this.startDate = startDate;
-        this.personFisicaEntity = personFisicaEntity;
+        this.personFisica = personFisica;
         this.legalPerson = legalPerson;
+        this.contaMatriz = contaMatriz;
+        this.contaFilial = contaFilial;
+        this.situacao = situacao;
     }
 }

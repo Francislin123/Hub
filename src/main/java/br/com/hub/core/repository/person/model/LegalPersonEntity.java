@@ -4,7 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by Francislin Dos Reis on 28/11/2018
@@ -30,7 +33,8 @@ public class LegalPersonEntity {
     }
 
     @Builder
-    public LegalPersonEntity(String cnpj, String reasonSocial, String nameOfFantasy) {
+    public LegalPersonEntity(Long id, String cnpj, String reasonSocial, String nameOfFantasy) {
+        this.id = id;
         this.cnpj = cnpj;
         this.reasonSocial = reasonSocial;
         this.nameOfFantasy = nameOfFantasy;

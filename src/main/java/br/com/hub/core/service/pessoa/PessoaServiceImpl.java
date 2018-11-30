@@ -32,7 +32,7 @@ public class PessoaServiceImpl implements PessoaService {
 
     private LegalPersonEntity persistiLegalPerson(LegalPersonEntity legalPersonEntity) {
         LegalPersonEntity LegalPerson = legalPersonRepository.save(legalPersonEntity);
-        log.info("fichaEntity={} message=insert_successfully", legalPersonEntity);
+        log.info("legalPersonEntity={} message=insert_successfully", legalPersonEntity);
         return LegalPerson;
     }
 }
