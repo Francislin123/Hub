@@ -17,7 +17,7 @@ Esta aplicação é responsável pela criação, modificação, listagem e exclu
 - 1 - Entrar na pasta onde está o war do projeto
 - 2 - Executar o seguinte comando pelo cmd
 
-- java -jar hub-0.0.1-SNAPSHOT.jar --spring.config.location=file:C:/Config/application-prod.yml
+- java -jar hub-0.0.1-SNAPSHOT.jar
 - OBS: Este comando da start na aplicação, o mesmo encontra as configurações do arquivo de configuração 
 do banco de dados entre outras configurações (application-prod.yml)
    
