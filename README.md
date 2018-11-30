@@ -19,7 +19,7 @@ Esta aplicação é responsável pela criação, modificação, listagem e exclu
 
 - java -jar hub-0.0.1-SNAPSHOT.jar
 - OBS: Este comando da start na aplicação, o mesmo encontra as configurações do arquivo de configuração 
-do banco de dados entre outras configurações (application-prod.yml)
+do banco de dados entre outras configurações (application.yml)
    
 ### Documentação da API (Swagger)
 - Link para acesso local: http://localhost:8077/hub-api/v1/swagger-ui.html#/
