@@ -24,6 +24,9 @@ do banco de dados entre outras configurações (application-prod.yml)
 ### Documentação da API (Swagger)
 - Link para acesso local: http://localhost:8077/hub-api/v1/swagger-ui.html#/
 
+### H2 SGBD  (Link de acesso)
+- Link para acesso local: http://localhost:8077/hub-hub/v1/h2
+
 ### Você também pode:
 
 - Solicitação de mesclagem no ramo mestre após ser aplicada na produção

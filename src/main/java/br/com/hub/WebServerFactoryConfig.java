@@ -11,6 +11,6 @@ public class WebServerFactoryConfig {
     @Bean
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
     webServerFactoryCustomizer() {
-        return factory -> factory.setContextPath("/hub-hub/v1");
+        return factory -> factory.setContextPath("/hub-api/v1");
     }
 }

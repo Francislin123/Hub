@@ -1,12 +1,12 @@
 info:
   component: Hub Api
   project:
-    name: Hub-hub
+    name: Hub-api
     version: 0.0.1-SNAPSHOT
 
 server:
   port: 8077
-  contextPath: /Hub-hub
+  contextPath: /hub-api
   tomcat:
     basedir: /tmp/tomcat
 
