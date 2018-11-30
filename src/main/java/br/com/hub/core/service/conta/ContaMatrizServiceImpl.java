@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -97,6 +98,11 @@ public class ContaMatrizServiceImpl implements ContaMatrizService {
         ContaMatrizEntity contaMatrizEntity = findById(id);
         log.info("docaEntity={} message=delete_successfully");
         this.contaMatrizRepository.delete(contaMatrizEntity);
+    }
+
+    @Override
+    public List<ContaMatrizEntity> findAllContaMatriz() {
+        return contaMatrizRepository.findAll();
     }
 
     private ContaMatrizEntity persistiContaMatriz(ContaMatrizEntity contaMatrizEntity) {

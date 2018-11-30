@@ -1,5 +1,9 @@
 package br.com.hub.resources.contas.response;
 
+import br.com.hub.core.repository.conta.models.ContaFilialEntity;
+import br.com.hub.core.repository.conta.models.ContaMatrizEntity;
+import br.com.hub.core.repository.person.model.LegalPersonEntity;
+import br.com.hub.core.repository.person.model.PersonFisicaEntity;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,9 +22,11 @@ public class ContaFilialResponse {
 
     private LocalDateTime startDate;
 
-    private Long personFisica;
+    private PersonFisicaEntity personFisica;
 
-    private Long legalPerson;
+    private LegalPersonEntity legalPerson;
 
-    private Long contaMatriz;
+    private ContaMatrizEntity contaMatriz;
+
+    private ContaFilialEntity contaFilial;
 }

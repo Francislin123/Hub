@@ -7,6 +7,9 @@ import br.com.hub.core.repository.person.model.LegalPersonEntity;
 import br.com.hub.core.repository.person.model.PersonFisicaEntity;
 import br.com.hub.core.service.conta.ContaMatrizService;
 import br.com.hub.resources.contas.request.ContaMatrizRequest;
+import br.com.hub.resources.contas.response.ContaFilialResponse;
+import br.com.hub.resources.contas.response.ContaMatrizResponse;
+import br.com.hub.resources.response.CollectionResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -22,6 +25,7 @@ import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by Francislin Dos Reis on 28/11/2018
@@ -104,6 +108,28 @@ public class ContaMatrizController {
         contaMatrizService.deleteContaMatriz(id);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @ApiOperation(value = "List of all parent account", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "List of all parent account", response = CollectionResponse.class, responseContainer = "List"),
+            @ApiResponse(code = 500, message = "Unhandled exception")})
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<CollectionResponse<ContaMatrizResponse>> listAllParentAccount() {
+
+        List<ContaMatrizEntity> allContaMatrix = contaMatrizService.findAllContaMatriz();
+
+        return ResponseEntity.ok().body(CollectionResponse.<ContaMatrizResponse>builder()
+                .result(allContaMatrix.stream().map(f ->
+                        ContaMatrizResponse.builder()
+                                .id(f.getId())
+                                .nameAccount(f.getNameAccount())
+                                .legalPersonId(f.getLegalPerson().getId())
+                                .personFisicaId(f.getPersonFisicaEntity().getId())
+                                .startDate(f.getStartDate())
+                                .build())
+                        .collect(Collectors.toList()))
+                .build());
     }
 
     public Set<ContaFilialEntity> getContaFilial(List<String> names) {

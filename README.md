@@ -14,7 +14,7 @@ Esta aplicação é responsável pela criação, modificação, listagem e exclu
 
 ### Para rodar a aplicação é só seguir os passos abaixo.
 
-- 1 - Entrar na pasta onde está o war do projeto
+- 1 - Entrar na pasta onde está o jar do projeto
 - 2 - Executar o seguinte comando pelo cmd
 
 - java -jar hub-0.0.1-SNAPSHOT.jar

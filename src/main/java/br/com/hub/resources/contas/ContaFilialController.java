@@ -97,7 +97,12 @@ public class ContaFilialController {
         return ResponseEntity.ok().body(CollectionResponse.<ContaFilialResponse>builder()
                 .result(allContaFilial.stream().map(f ->
                         ContaFilialResponse.builder()
-                                .id(f.getId()).build())
+                                .id(f.getId())
+                                .nameAccount(f.getNameAccount())
+                                .legalPerson(LegalPersonEntity.builder().id(f.getLegalPerson().getId()).build())
+                                .personFisica(PersonFisicaEntity.builder().id(f.getPersonFisica().getId()).build())
+                                .startDate(f.getStartDate())
+                                .build())
                         .collect(Collectors.toList()))
                 .build());
     }

@@ -9,7 +9,7 @@ import lombok.experimental.Tolerate;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.Collection;
 
 /**
  * Created by Francislin Dos Reis on 28/11/2018
@@ -36,7 +36,7 @@ public class ContaMatrizEntity {
     private LegalPersonEntity legalPerson;
 
     @OneToMany(mappedBy = "contaMatriz", cascade = CascadeType.ALL)
-    private Set<ContaFilialEntity> contaFilial;
+    private Collection<ContaFilialEntity> contaFilial;
 
     @ManyToOne
     private Situacao situacao;
@@ -49,7 +49,7 @@ public class ContaMatrizEntity {
     @Builder
     public ContaMatrizEntity(Long id, String nameAccount, BigDecimal accountCredit, LocalDateTime startDate,
                              PersonFisicaEntity personFisicaEntity, LegalPersonEntity legalPerson,
-                             Set<ContaFilialEntity> contaFilial, Situacao situacao) {
+                             Collection<ContaFilialEntity> contaFilial, Situacao situacao) {
         this.id = id;
         this.nameAccount = nameAccount;
         AccountCredit = accountCredit;

@@ -34,7 +34,7 @@ public class ContaFilialEntity {
     @ManyToOne
     private LegalPersonEntity legalPerson;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private ContaMatrizEntity contaMatriz;
 
     @ManyToOne
